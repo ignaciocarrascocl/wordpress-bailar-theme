@@ -1,12 +1,24 @@
 <?php get_header(); ?>
 
-<!-- Page Header for Blog -->
+<!-- Page Header for Search -->
 <div class="page-header bg-light py-5">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="page-title">Blog</h1>
-                <p class="page-description">Todas nuestras reflexiones sobre la vida</p>
+                <h1 class="page-title">
+                    <?php if (have_posts()): ?>
+                        Resultados para: "<?php echo get_search_query(); ?>"
+                    <?php else: ?>
+                        Sin resultados para: "<?php echo get_search_query(); ?>"
+                    <?php endif; ?>
+                </h1>
+                <p class="page-description">
+                    <?php if (have_posts()): ?>
+                        Encontramos <?php echo $wp_query->found_posts; ?> artículo(s)
+                    <?php else: ?>
+                        No encontramos artículos que coincidan con tu búsqueda
+                    <?php endif; ?>
+                </p>
             </div>
         </div>
     </div>
@@ -19,10 +31,18 @@
 <!-- Main Content -->
 <main class="main-content">
     <div class="container">
-        <h2 class="section-title">últimas reflexiones</h2>
-        
         <div class="row">
             <div class="col-12">
+                <!-- Search Form -->
+                <div class="search-form-container text-center mb-5">
+                    <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="search-form">
+                        <div class="input-group mb-3" style="max-width: 500px; margin: 0 auto;">
+                            <input type="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="Buscar artículos..." class="form-control" required>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+
                 <?php if (have_posts()) : ?>
                     <?php $post_count = 0; ?>
                     <?php while (have_posts()) : the_post(); ?>
@@ -91,8 +111,8 @@
                         <?php
                         the_posts_pagination(array(
                             'mid_size'  => 2,
-                            'prev_text' => __('← Anterior'),
-                            'next_text' => __('Siguiente →'),
+                            'prev_text' => __('← Anterior', 'bailar-y-llorar'),
+                            'next_text' => __('Siguiente →', 'bailar-y-llorar'),
                         ));
                         ?>
                     </div>
@@ -100,8 +120,17 @@
                 <?php else : ?>
                     <!-- No posts found -->
                     <div class="no-posts text-center py-5">
-                        <h3>No hay publicaciones aún</h3>
-                        <p>Vuelve pronto para leer nuestras reflexiones sobre la vida.</p>
+                        <h3>No se encontraron resultados</h3>
+                        <p>Intenta con términos diferentes o revisa la ortografía.</p>
+                        <div class="mt-4">
+                            <h5>Sugerencias:</h5>
+                            <ul class="list-unstyled">
+                                <li>• Usa términos más generales</li>
+                                <li>• Revisa la ortografía</li>
+                                <li>• Intenta con sinónimos</li>
+                            </ul>
+                        </div>
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="read-more-btn mt-3">Volver al inicio</a>
                     </div>
                 <?php endif; ?>
             </div>

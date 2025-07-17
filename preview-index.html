@@ -19,7 +19,7 @@
             font-weight: 400;
             line-height: 1.7;
             color: #000000;
-            background-color: #fafafa;
+            background-color: #ffffff;
             letter-spacing: -0.01em;
         }
 
@@ -54,7 +54,7 @@
             z-index: 0;
         }
 
-        /* Overlay for better text readability */
+        /* Overlay for better text readability - removed dark overlay */
         .site-header::before {
             content: '';
             position: absolute;
@@ -62,7 +62,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(143,45,86,0.05) 100%);
+            background: rgba(255,255,255,0.1);
             z-index: 1;
         }
 
@@ -70,10 +70,11 @@
         .navbar {
             position: relative;
             z-index: 1000;
-            padding: 2.5rem 0;
+            padding: 1.5rem 0 1.5rem 0; /* Increased bottom padding to 1.5rem */
             background: rgba(255,255,255,0.1);
             border-bottom: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
+            overflow: visible; /* Allow boxes to hang out */
         }
 
         /* Sticky navbar state */
@@ -82,10 +83,32 @@
             top: 0;
             left: 0;
             right: 0;
-            padding: 1.2rem 0;
+            padding: 0.8rem 0;
             background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sticky state adjustments for nav boxes */
+        .navbar.sticky .nav-links a {
+            width: 60px;
+            height: 50px; /* Adjusted for sticky mode */
+            font-size: 0.8rem;
+            transform: rotateZ(0deg) scale(0.8) !important;
+            align-items: center; /* Center text in sticky mode */
+            padding-bottom: 0;
+            margin-top: 0; /* Reset margin in sticky mode */
+            background: #8f2d56; /* Keep magenta in sticky mode */
+            color: #ffffff;
+        }
+
+        .navbar.sticky .nav-links a:hover {
+            transform: rotateZ(0deg) translateY(-5px) translateZ(10px) scale(0.8) !important;
+            background: #7a2548;
+        }
+
+        .navbar.sticky .nav-links a.active {
+            background: #b8396f;
         }
 
         /* Navbar content */
@@ -122,9 +145,15 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 2rem;
             margin: 0;
             padding: 0;
+            align-items: flex-start;
+            padding-top: 2.5rem; /* Increased from 2rem to 2.5rem */
+        }
+
+        .nav-links li {
+            perspective: 1000px;
         }
 
         /* Mobile menu toggle */
@@ -234,34 +263,77 @@
         .nav-links a {
             font-family: 'Inter', sans-serif;
             font-weight: 500;
-            color: #000000;
+            color: #ffffff; /* White text */
             text-decoration: none;
             text-transform: lowercase;
             font-size: 0.95rem;
             letter-spacing: 0.02em;
             position: relative;
-            transition: color 0.3s ease;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Box styling */
+            display: flex;
+            width: 80px;
+            height: 180px; /* Increased from 120px to 180px */
+            background: #8f2d56; /* Magenta background */
+            border: 2px solid #8f2d56;
+            border-radius: 0; /* Removed rounded edges */
+            align-items: flex-end; /* Text at bottom */
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(143, 45, 86, 0.3);
+            backdrop-filter: blur(10px);
+            transform-origin: top center;
+            z-index: 10;
+            padding-bottom: 15px; /* Increased from 10px to 15px */
+            margin-top: -100px; /* Increased from -60px to -100px (40% more up) */
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #8f2d56;
-            transition: width 0.3s ease;
+        /* Random angles for each nav item */
+        .nav-links li:nth-child(1) a {
+            transform: rotateZ(-8deg);
+        }
+        
+        .nav-links li:nth-child(2) a {
+            transform: rotateZ(5deg);
+        }
+        
+        .nav-links li:nth-child(3) a {
+            transform: rotateZ(-3deg);
+        }
+        
+        .nav-links li:nth-child(4) a {
+            transform: rotateZ(7deg);
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
+        /* Hover effects */
+        .nav-links a:hover {
+            transform: rotateZ(0deg) translateY(-10px) translateZ(20px) !important;
+            background: #7a2548; /* Darker magenta on hover */
+            color: #ffffff;
+            border-color: #7a2548;
+            box-shadow: 0 15px 35px rgba(143, 45, 86, 0.4);
+            z-index: 20;
         }
 
-        .nav-links a:hover,
+        /* Active state */
         .nav-links a.active {
-            color: #8f2d56;
+            background: #b8396f; /* Lighter magenta for active */
+            border-color: #b8396f;
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(184, 57, 111, 0.4);
+        }
+
+        .nav-links a.active:hover {
+            background: #7a2548; /* Darker magenta on hover */
+            color: #ffffff;
+            border-color: #7a2548;
+            transform: rotateZ(0deg) translateY(-10px) translateZ(20px) !important;
+        }
+
+        /* Remove old underline effect */
+        .nav-links a::after {
+            display: none;
         }
 
         /* Hero content */
@@ -292,9 +364,9 @@
             text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
         }
 
-        /* Main content - no negative margins */
+        /* Main content */
         .main-content {
-            background: #fafafa;
+            background: #ffffff;
             padding: 4rem 0; /* Reduced from 6rem to 4rem */
         }
 
@@ -495,16 +567,25 @@
         /* Responsive */
         @media (max-width: 992px) {
             .nav-links {
-                gap: 2rem;
+                gap: 1.5rem;
+                padding-top: 2rem; /* Adjusted for tablet */
+            }
+            
+            .nav-links a {
+                width: 70px;
+                height: 150px; /* Increased from 100px to 150px */
+                font-size: 0.85rem;
+                padding-bottom: 12px;
+                margin-top: -70px; /* Increased from -40px to -70px (40% more up) */
             }
         }
 
-        @media (max-width: 768px) {
+            @media (max-width: 768px) {
             .site-header {
                 min-height: 60vh; /* Increased from 40vh to show full image */
                 background-attachment: scroll;
                 background-size: contain; /* Changed from cover to contain */
-                background-color: #f5f5f5; /* Keep background color on mobile too */
+                background-color: #ffffff; /* Changed from gray to white */
             }
             
             .navbar {
@@ -594,7 +675,7 @@
         <div class="container">
             <div class="navbar-content">
                 <a href="preview-index.html" class="logo-container">
-                    <img src="assets/logo.png" alt="Bailar y Llorar" class="site-logo">
+                    <img src="assets/logo2.png" alt="Bailar y Llorar" class="site-logo">
                 </a>
                 
                 <div class="nav-container">

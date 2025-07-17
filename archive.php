@@ -1,12 +1,32 @@
 <?php get_header(); ?>
 
-<!-- Page Header for Blog -->
+<!-- Page Header for Archives -->
 <div class="page-header bg-light py-5">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="page-title">Blog</h1>
-                <p class="page-description">Todas nuestras reflexiones sobre la vida</p>
+                <h1 class="page-title">
+                    <?php
+                    if (is_category()) {
+                        echo 'Categoría: ' . single_cat_title('', false);
+                    } elseif (is_tag()) {
+                        echo 'Etiqueta: ' . single_tag_title('', false);
+                    } elseif (is_author()) {
+                        echo 'Autor: ' . get_the_author();
+                    } elseif (is_date()) {
+                        echo 'Archivo: ' . get_the_date();
+                    } else {
+                        echo 'Archivo';
+                    }
+                    ?>
+                </h1>
+                <?php if (is_category() && category_description()): ?>
+                    <p class="page-description"><?php echo category_description(); ?></p>
+                <?php elseif (is_tag() && tag_description()): ?>
+                    <p class="page-description"><?php echo tag_description(); ?></p>
+                <?php else: ?>
+                    <p class="page-description">Reflexiones y artículos</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -19,8 +39,6 @@
 <!-- Main Content -->
 <main class="main-content">
     <div class="container">
-        <h2 class="section-title">últimas reflexiones</h2>
-        
         <div class="row">
             <div class="col-12">
                 <?php if (have_posts()) : ?>
@@ -91,8 +109,8 @@
                         <?php
                         the_posts_pagination(array(
                             'mid_size'  => 2,
-                            'prev_text' => __('← Anterior'),
-                            'next_text' => __('Siguiente →'),
+                            'prev_text' => __('← Anterior', 'bailar-y-llorar'),
+                            'next_text' => __('Siguiente →', 'bailar-y-llorar'),
                         ));
                         ?>
                     </div>
@@ -100,8 +118,9 @@
                 <?php else : ?>
                     <!-- No posts found -->
                     <div class="no-posts text-center py-5">
-                        <h3>No hay publicaciones aún</h3>
-                        <p>Vuelve pronto para leer nuestras reflexiones sobre la vida.</p>
+                        <h3>No hay publicaciones</h3>
+                        <p>No se encontraron artículos en esta sección.</p>
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="read-more-btn">Volver al inicio</a>
                     </div>
                 <?php endif; ?>
             </div>

@@ -1,18 +1,5 @@
 <?php get_header(); ?>
 
-<!-- Page Header for Blog -->
-<div class="page-header bg-light py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="page-title">Blog</h1>
-                <p class="page-description">Todas nuestras reflexiones sobre la vida</p>
-            </div>
-        </div>
-    </div>
-</div>
-</header>
-
 <!-- Placeholder to prevent layout shift -->
 <div class="navbar-placeholder" id="navbarPlaceholder"></div>
 
@@ -91,8 +78,8 @@
                         <?php
                         the_posts_pagination(array(
                             'mid_size'  => 2,
-                            'prev_text' => __('← Anterior'),
-                            'next_text' => __('Siguiente →'),
+                            'prev_text' => __('← Anterior', 'bailar-y-llorar'),
+                            'next_text' => __('Siguiente →', 'bailar-y-llorar'),
                         ));
                         ?>
                     </div>
