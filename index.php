@@ -11,19 +11,36 @@
                     <?php $post_count = 0; ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <?php $post_count++; ?>
-                        <!-- Post <?php echo $post_count; ?> -->
+                        
+                        <!-- Post Card -->
                         <article class="post-card">
                             <div class="row g-0">
-                                <div class="col-lg-5 <?php echo ($post_count % 2 == 0) ? 'order-lg-2' : ''; ?>">
-                                    <div class="post-image">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <?php the_post_thumbnail('medium_large', array('class' => 'img-fluid')); ?>
-                                        <?php else : ?>
-                                            <span>imagen del artículo</span>
-                                        <?php endif; ?>
+                                <?php if ($post_count % 2 == 0): ?>
+                                    <!-- Even posts: image on right -->
+                                    <div class="col-lg-5 order-lg-2">
+                                        <div class="post-image">
+                                            <?php if (has_post_thumbnail()): ?>
+                                                <?php the_post_thumbnail('medium_large', array('class' => 'img-fluid')); ?>
+                                            <?php else: ?>
+                                                <span>imagen del artículo</span>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-7 <?php echo ($post_count % 2 == 0) ? 'order-lg-1' : ''; ?>">
+                                    <div class="col-lg-7 order-lg-1">
+                                <?php else: ?>
+                                    <!-- Odd posts: image on left -->
+                                    <div class="col-lg-5">
+                                        <div class="post-image">
+                                            <?php if (has_post_thumbnail()): ?>
+                                                <?php the_post_thumbnail('medium_large', array('class' => 'img-fluid')); ?>
+                                            <?php else: ?>
+                                                <span>imagen del artículo</span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                <?php endif; ?>
+                                
                                     <div class="post-content">
                                         <h3 class="post-title">
                                             <a href="<?php the_permalink(); ?>">
@@ -32,18 +49,15 @@
                                         </h3>
                                         
                                         <div class="post-meta">
-                                            <?php echo get_the_author(); ?> • <?php echo get_the_date('j F Y'); ?> • <?php 
-                                            $categories = get_the_category();
-                                            if (!empty($categories)) {
-                                                echo esc_html($categories[0]->name);
-                                            } else {
-                                                echo 'reflexiones';
-                                            }
-                                            ?>
+                                            <?php echo bailar_y_llorar_post_meta(); ?>
                                         </div>
                                         
                                         <div class="post-excerpt">
-                                            <p><?php echo wp_trim_words(get_the_excerpt(), 30, '...'); ?></p>
+                                            <?php if (has_excerpt()): ?>
+                                                <p><?php echo get_the_excerpt(); ?></p>
+                                            <?php else: ?>
+                                                <p><?php echo wp_trim_words(get_the_content(), 30, '...'); ?></p>
+                                            <?php endif; ?>
                                         </div>
                                         
                                         <a href="<?php the_permalink(); ?>" class="read-more-btn">
@@ -53,25 +67,25 @@
                                 </div>
                             </div>
                         </article>
+                        
                     <?php endwhile; ?>
-
+                    
                     <!-- Pagination -->
-                    <?php if (get_next_posts_link() || get_previous_posts_link()) : ?>
-                    <div class="pagination">
+                    <div class="pagination-wrapper text-center mt-5">
                         <?php
-                        echo paginate_links(array(
-                            'prev_text' => '← anterior',
-                            'next_text' => 'siguiente →',
-                            'type' => 'list'
+                        the_posts_pagination(array(
+                            'mid_size'  => 2,
+                            'prev_text' => __('← Anterior'),
+                            'next_text' => __('Siguiente →'),
                         ));
                         ?>
                     </div>
-                    <?php endif; ?>
-
+                    
                 <?php else : ?>
-                    <div class="text-center py-5">
-                        <h3>No hay publicaciones disponibles</h3>
-                        <p>Pronto compartiremos nuevas reflexiones contigo.</p>
+                    <!-- No posts found -->
+                    <div class="no-posts text-center py-5">
+                        <h3>No hay publicaciones aún</h3>
+                        <p>Vuelve pronto para leer nuestras reflexiones sobre la vida.</p>
                     </div>
                 <?php endif; ?>
             </div>

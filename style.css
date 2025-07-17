@@ -1,7 +1,9 @@
 /*
 Theme Name: Bailar y Llorar
-Description: Un tema elegante para un blog personal sobre reflexiones de vida
+Description: Un tema elegante para blogs de reflexión y emociones. Diseñado para conectar con las emociones más profundas a través de un diseño limpio y moderno.
+Author: Tu Nombre
 Version: 1.0
+Text Domain: bailar-y-llorar
 */
 
 /* Reset and base styles */
@@ -321,7 +323,6 @@ h1, h2, h3, h4, h5, h6 {
     background: #8f2d56;
 }
 
-/* Post cards */
 .post-card {
     background: #ffffff;
     margin-bottom: 3rem;
@@ -347,6 +348,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
     position: relative;
     overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .post-image::before {
@@ -449,253 +456,45 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(3px);
 }
 
-/* Single post and page styles */
-.post-single, .page-content {
-    margin-bottom: 4rem;
+/* Footer */
+.footer {
+    background: #000000;
+    color: #ffffff;
+    padding: 4rem 0 2rem;
+    margin-top: 0;
 }
 
-.post-header, .page-header {
-    margin-bottom: 3rem;
-}
-
-.post-single-content, .page-single-content {
+.footer h6 {
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.post-single-content h2, .page-single-content h2 {
-    font-size: 2rem;
-    margin: 2.5rem 0 1.5rem;
-    color: #8f2d56;
-}
-
-.post-single-content h3, .page-single-content h3 {
-    font-size: 1.5rem;
-    margin: 2rem 0 1rem;
-}
-
-.post-single-content p, .page-single-content p {
     margin-bottom: 1.5rem;
 }
 
-.post-single-content blockquote, .page-single-content blockquote {
-    border-left: 4px solid #8f2d56;
-    padding-left: 2rem;
-    margin: 2rem 0;
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #666;
+.footer p {
+    color: #cccccc;
+    line-height: 1.7;
 }
 
-/* Post navigation */
-.post-navigation {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-.nav-link-prev, .nav-link-next {
-    display: block;
+.footer a {
+    color: #8f2d56;
     text-decoration: none;
-    color: #333;
     transition: color 0.3s ease;
-    padding: 1rem 0;
 }
 
-.nav-link-prev:hover, .nav-link-next:hover {
-    color: #8f2d56;
-}
-
-.nav-label {
-    display: block;
-    font-size: 0.9rem;
-    color: #8f2d56;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
-
-.nav-title {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-/* Comments section */
-.comments-section {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-.comment-list {
-    list-style: none;
-    padding: 0;
-}
-
-.comment {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: #ffffff;
-    border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 8px;
-}
-
-.comment-author {
-    font-weight: 600;
-    color: #8f2d56;
-    margin-bottom: 0.5rem;
-}
-
-.comment-meta {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
-}
-
-.comment-content p {
-    margin-bottom: 0;
-}
-
-/* Form styles */
-.comment-form {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: #ffffff;
-    border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 8px;
-}
-
-.comment-form input[type="text"],
-.comment-form input[type="email"],
-.comment-form input[type="url"],
-.comment-form textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.comment-form input:focus,
-.comment-form textarea:focus {
-    outline: none;
-    border-color: #8f2d56;
-    box-shadow: 0 0 0 3px rgba(143, 45, 86, 0.1);
-}
-
-.comment-form input[type="submit"] {
-    background: #8f2d56;
+.footer a:hover {
     color: #ffffff;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-.comment-form input[type="submit"]:hover {
-    background: #7a2548;
+.footer-divider {
+    border-color: #333 !important;
+    margin: 3rem 0 2rem !important;
 }
 
-/* Page specific header adjustments */
-.single-post .site-header,
-.single-page .site-header {
-    min-height: 30vh;
-}
-
-.single-post .hero-content,
-.single-page .hero-content {
-    display: none;
-}
-
-/* Error page styles */
-.error-404 .main-content {
+.footer-copyright {
+    color: #888 !important;
+    font-size: 0.85rem !important;
     text-align: center;
-    padding: 6rem 0;
-}
-
-.error-404 h1 {
-    font-size: 4rem;
-    color: #8f2d56;
-    margin-bottom: 1rem;
-}
-
-.error-404 p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-/* Widgets */
-.widget {
-    margin-bottom: 2rem;
-}
-
-.widget-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #8f2d56;
-}
-
-.widget ul {
-    list-style: none;
-    padding: 0;
-}
-
-.widget ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.widget ul li:last-child {
-    border-bottom: none;
-}
-
-.widget ul li a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.widget ul li a:hover {
-    color: #8f2d56;
-}
-
-/* Accessibility improvements */
-.sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-}
-
-/* Print styles */
-@media print {
-    .navbar,
-    .mobile-menu,
-    .footer,
-    .comments-section,
-    .post-navigation {
-        display: none !important;
-    }
-    
-    .main-content {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    body {
-        background: white !important;
-        color: black !important;
-    }
 }
 
 /* Responsive */
@@ -708,6 +507,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     .site-header {
         min-height: 60vh;
+        background-attachment: scroll;
+        background-size: contain;
+        background-color: #f5f5f5;
     }
     
     .navbar {
