@@ -9,6 +9,9 @@
 
 <!-- Header Principal -->
 <header class="site-header">
+    <!-- Background image as real img element -->
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/header-2x.png" alt="Background" class="header-bg-image">
+    
     <div class="container">
         <div class="header-content">
             <a href="<?php echo home_url(); ?>">
@@ -27,36 +30,52 @@
     </div>
 </header>
 
+<!-- Placeholder to prevent layout shift -->
+<div class="navbar-placeholder" id="navbarPlaceholder"></div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.site-header');
     const headerContent = document.querySelector('.header-content');
     const logo = document.querySelector('.site-logo');
+    const placeholder = document.getElementById('navbarPlaceholder');
     
-    let lastScrollTop = 0;
     let isSticky = false;
+    let headerHeight = 0;
+    
+    // Calculate header height
+    function calculateHeaderHeight() {
+        headerHeight = headerContent.offsetHeight;
+    }
     
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const scrollThreshold = 100;
         
         if (scrollTop > scrollThreshold && !isSticky) {
-            // Hacer sticky
+            // Make sticky
             header.classList.add('sticky');
             headerContent.classList.add('collapsed');
             logo.classList.add('small');
+            placeholder.style.height = headerHeight + 'px';
             isSticky = true;
         } else if (scrollTop <= scrollThreshold && isSticky) {
-            // Remover sticky
+            // Remove sticky
             header.classList.remove('sticky');
             headerContent.classList.remove('collapsed');
             logo.classList.remove('small');
+            placeholder.style.height = '0px';
             isSticky = false;
         }
-        
-        lastScrollTop = scrollTop;
     }
     
-    window.addEventListener('scroll', handleScroll);
+    // Initialize
+    calculateHeaderHeight();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', function() {
+        if (!isSticky) {
+            calculateHeaderHeight();
+        }
+    }, { passive: true });
 });
 </script>
