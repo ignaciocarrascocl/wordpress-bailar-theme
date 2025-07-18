@@ -7,7 +7,7 @@
 <main class="main-content">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-12">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <article id="post-<?php the_ID(); ?>" <?php post_class('single-page'); ?>>
@@ -51,11 +51,6 @@
                         <a href="<?php echo esc_url(home_url('/')); ?>" class="read-more-btn">Volver al inicio</a>
                     </div>
                 <?php endif; ?>
-            </div>
-            
-            <!-- Sidebar -->
-            <div class="col-lg-4">
-                <?php get_sidebar(); ?>
             </div>
         </div>
     </div>
