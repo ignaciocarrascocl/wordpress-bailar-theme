@@ -33,14 +33,8 @@
                         'theme_location' => 'primary',
                         'menu_class'     => 'nav-links',
                         'container'      => false,
-                        'fallback_cb'    => function() {
-                            echo '<ul class="nav-links">';
-                            echo '<li><a href="' . esc_url(home_url('/')) . '" class="active">inicio</a></li>';
-                            echo '<li><a href="' . esc_url(home_url('/blog')) . '">blog</a></li>';
-                            echo '<li><a href="' . esc_url(home_url('/acerca')) . '">acerca</a></li>';
-                            echo '<li><a href="' . esc_url(home_url('/contacto')) . '">contacto</a></li>';
-                            echo '</ul>';
-                        }
+                        'fallback_cb'    => false, // No fallback - show nothing if no menu
+                        'depth'          => 1, // Only show top level items
                     ));
                     ?>
                     
@@ -63,14 +57,8 @@
                     'menu_class'     => 'mobile-nav-links',
                     'container'      => false,
                     'walker'         => new Bailar_Mobile_Walker(),
-                    'fallback_cb'    => function() {
-                        echo '<ul class="mobile-nav-links">';
-                        echo '<li><a href="' . esc_url(home_url('/')) . '" class="active">inicio</a></li>';
-                        echo '<li><a href="' . esc_url(home_url('/blog')) . '">blog</a></li>';
-                        echo '<li><a href="' . esc_url(home_url('/acerca')) . '">acerca</a></li>';
-                        echo '<li><a href="' . esc_url(home_url('/contacto')) . '">contacto</a></li>';
-                        echo '</ul>';
-                    }
+                    'fallback_cb'    => false, // No fallback - show nothing if no menu
+                    'depth'          => 1, // Only show top level items
                 ));
                 ?>
             </div>

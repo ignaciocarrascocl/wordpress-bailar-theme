@@ -22,19 +22,44 @@ body {
     letter-spacing: -0.01em;
 }
 
-/* Global link styles */
+/* Global link styles - Override Bootstrap */
 a {
-    color: #8f2d56;
-    text-decoration: none;
+    color: #8f2d56 !important;
+    text-decoration: none !important;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #7a2548;
+    color: #7a2548 !important;
+    text-decoration: none !important;
 }
 
 a:visited {
-    color: #b8396f;
+    color: #b8396f !important;
+}
+
+a:focus {
+    color: #7a2548 !important;
+    text-decoration: none !important;
+}
+
+/* Bootstrap overrides */
+.btn-link {
+    color: #8f2d56 !important;
+    text-decoration: none !important;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+    color: #7a2548 !important;
+    text-decoration: none !important;
+}
+
+/* WordPress specific overrides */
+.wp-block-navigation a,
+.wp-block-navigation-item a,
+.menu-item a {
+    color: inherit !important;
 }
 
 /* Typography */
