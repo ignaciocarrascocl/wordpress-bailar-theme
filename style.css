@@ -23,13 +23,16 @@ body {
 }
 
 /* Global link styles - Override Bootstrap */
-a {
+a,
+a:link,
+a:any-link {
     color: #8f2d56 !important;
     text-decoration: none !important;
     transition: color 0.3s ease;
 }
 
-a:hover {
+a:hover,
+a:hover:link {
     color: #7a2548 !important;
     text-decoration: none !important;
 }
@@ -60,6 +63,30 @@ a:focus {
 .wp-block-navigation-item a,
 .menu-item a {
     color: inherit !important;
+}
+
+/* Force override Bootstrap reboot styles */
+html a,
+body a,
+* a {
+    color: #8f2d56 !important;
+    text-decoration: none !important;
+}
+
+html a:hover,
+body a:hover,
+* a:hover {
+    color: #7a2548 !important;
+    text-decoration: none !important;
+}
+
+/* Override CSS custom properties if they exist */
+:root {
+    --bs-link-color: #8f2d56 !important;
+    --bs-link-hover-color: #7a2548 !important;
+    --bs-link-color-rgb: 143, 45, 86 !important;
+    --bs-link-hover-color-rgb: 122, 37, 72 !important;
+    --bs-link-opacity: 1 !important;
 }
 
 /* Typography */
