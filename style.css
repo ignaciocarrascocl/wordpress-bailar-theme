@@ -22,39 +22,6 @@ body {
     letter-spacing: -0.01em;
 }
 
-
-/* Bootstrap overrides */
-.btn-link {
-    color: #8f2d56 !important;
-    text-decoration: none !important;
-}
-
-.btn-link:hover,
-.btn-link:focus {
-    color: #7a2548 !important;
-    text-decoration: none !important;
-}
-
-/* WordPress specific overrides */
-.wp-block-navigation a,
-.wp-block-navigation-item a,
-.menu-item a {
-    color: inherit !important;
-}
-
-/* Force override Bootstrap reboot styles BUT exclude navigation */
-html a:not(.nav-links a):not(.navbar.sticky .nav-links a):not(.mobile-nav-links a),
-body a:not(.nav-links a):not(.navbar.sticky .nav-links a):not(.mobile-nav-links a) {
-    color: #8f2d56 !important;
-    text-decoration: none !important;
-}
-
-html a:hover:not(.nav-links a):not(.navbar.sticky .nav-links a):not(.mobile-nav-links a),
-body a:hover:not(.nav-links a):not(.navbar.sticky .nav-links a):not(.mobile-nav-links a) {
-    color: #7a2548 !important;
-    text-decoration: none !important;
-}
-
 /* Override CSS custom properties if they exist */
 :root {
     --bs-link-color: #8f2d56 !important;
