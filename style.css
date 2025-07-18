@@ -214,6 +214,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     align-items: flex-start;
     padding-top: 1rem; /* Increased from 2rem to 2.5rem */
+    gap: 3rem;
 }
 
 .nav-links li {
