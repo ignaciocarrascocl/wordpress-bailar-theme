@@ -22,6 +22,21 @@ body {
     letter-spacing: -0.01em;
 }
 
+/* Global link styles */
+a {
+    color: #8f2d56;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #7a2548;
+}
+
+a:visited {
+    color: #b8396f;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
@@ -481,6 +496,39 @@ h1, h2, h3, h4, h5, h6 {
 
 .post-content {
     padding: 3rem;
+}
+
+/* Post content specific links */
+.post-content a,
+.post-content-single a,
+.post-excerpt a,
+.entry-content a,
+.page-content a,
+.widget-content a {
+    color: #8f2d56;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: all 0.3s ease;
+}
+
+.post-content a:hover,
+.post-content-single a:hover,
+.post-excerpt a:hover,
+.entry-content a:hover,
+.page-content a:hover,
+.widget-content a:hover {
+    color: #7a2548;
+    text-decoration-thickness: 2px;
+}
+
+.post-content a:visited,
+.post-content-single a:visited,
+.post-excerpt a:visited,
+.entry-content a:visited,
+.page-content a:visited,
+.widget-content a:visited {
+    color: #b8396f;
 }
 
 .post-content-single {
