@@ -295,10 +295,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-.mobile-nav-links li {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
 .mobile-nav-links li:last-child {
     border-bottom: none;
 }
@@ -308,13 +304,19 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem 1.5rem;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    color: #000000;
+    color: white;
     text-decoration: none;
     text-transform: lowercase;
     font-size: 1rem;
     letter-spacing: 0.02em;
     transition: all 0.3s ease;
     position: relative;
+    background: #8f2d56;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-style: italic;
+    display: inline-block;
+    margin: 1rem;
 }
 
 .mobile-nav-links a:hover,
@@ -925,7 +927,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
     .site-header {
-        min-height: 60vh;
+        min-height: 38vh;
         background-attachment: scroll;
         background-size: contain;
         background-color: #ffffff;
