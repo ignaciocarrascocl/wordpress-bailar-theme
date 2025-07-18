@@ -1301,6 +1301,222 @@ h1, h2, h3, h4, h5, h6 {
     color: #8f2d56 !important;
 }
 
+/* VSEL Event Calendar Widget Styling */
+.vsel-widget {
+    border: none !important;
+    background: transparent !important;
+}
+
+.vsel-widget .widget-title {
+    color: #000000;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #8f2d56;
+    position: relative;
+}
+
+.vsel-widget .widget-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #b8396f;
+}
+
+/* Event container styling */
+.vsel-content {
+    background: #ffffff !important;
+    border: 1px solid rgba(143, 45, 86, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    box-shadow: 0 2px 15px rgba(143, 45, 86, 0.05) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.vsel-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #8f2d56 0%, #b8396f 100%);
+    z-index: 1;
+}
+
+.vsel-content:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(143, 45, 86, 0.15) !important;
+    border-color: rgba(143, 45, 86, 0.2) !important;
+}
+
+/* Event title styling */
+.vsel-meta-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.3 !important;
+    margin-left: 1rem !important; /* Offset for the left border */
+}
+
+/* Event meta information */
+.vsel-meta-date,
+.vsel-meta-time,
+.vsel-meta-location {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    color: #af9164 !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    margin-left: 1rem !important; /* Offset for the left border */
+}
+
+.vsel-meta-date span,
+.vsel-meta-time span,
+.vsel-meta-location span {
+    color: #666 !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+/* Event description */
+.vsel-info {
+    margin-top: 1rem !important;
+    margin-left: 1rem !important; /* Offset for the left border */
+}
+
+.vsel-text {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    color: #666 !important;
+}
+
+.vsel-text p {
+    margin: 0 !important;
+    font-style: italic !important;
+}
+
+/* Event link styling */
+.vsel-meta-link {
+    margin-top: 1rem !important;
+    margin-left: 1rem !important; /* Offset for the left border */
+}
+
+.vsel-meta-link a {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: #8f2d56 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.vsel-meta-link a::after {
+    content: '→' !important;
+    transition: transform 0.3s ease !important;
+}
+
+.vsel-meta-link a:hover {
+    background: #7a2548 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(143, 45, 86, 0.3) !important;
+}
+
+.vsel-meta-link a:hover::after {
+    transform: translateX(3px) !important;
+}
+
+/* Multiple events styling */
+.vsel-content + .vsel-content {
+    margin-top: 1.5rem !important;
+}
+
+/* Current/active event highlighting */
+.vsel-current {
+    border-color: rgba(143, 45, 86, 0.3) !important;
+    background: rgba(143, 45, 86, 0.02) !important;
+}
+
+.vsel-current::before {
+    background: linear-gradient(180deg, #8f2d56 0%, #7a2548 100%) !important;
+    width: 6px !important;
+}
+
+/* Upcoming events */
+.vsel-upcoming {
+    opacity: 1 !important;
+}
+
+/* Past events (if any) */
+.vsel-past {
+    opacity: 0.7 !important;
+}
+
+.vsel-past .vsel-meta-title {
+    color: #999 !important;
+}
+
+.vsel-past::before {
+    background: #ccc !important;
+}
+
+/* No events message styling */
+.vsel-widget .vsel-no-events {
+    text-align: center !important;
+    padding: 2rem 1rem !important;
+    color: #999 !important;
+    font-style: italic !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Responsive adjustments for events */
+@media (max-width: 768px) {
+    .vsel-content {
+        padding: 1rem !important;
+    }
+    
+    .vsel-meta-title {
+        font-size: 1rem !important;
+        margin-left: 0.75rem !important;
+    }
+    
+    .vsel-meta-date,
+    .vsel-meta-time,
+    .vsel-meta-location,
+    .vsel-info,
+    .vsel-meta-link {
+        margin-left: 0.75rem !important;
+    }
+    
+    .vsel-meta-link a {
+        font-size: 0.75rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+}
+
 /* Responsive sidebar */
 @media (max-width: 991px) {
     .sidebar {
