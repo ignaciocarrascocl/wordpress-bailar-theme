@@ -69,8 +69,8 @@
     <!-- Hero Content -->
     <div class="hero-content">
         <div class="hero-text">
-            <h1><?php echo esc_html(get_theme_mod('bailar_hero_title', 'bailar y llorar')); ?></h1>
-            <p><?php echo esc_html(get_theme_mod('bailar_hero_description', 'un espacio para reflexionar sobre la vida, compartir historias y conectar con nuestras emociones más profundas')); ?></p>
+            <!-- <h1><?php echo esc_html(get_theme_mod('bailar_hero_title', 'bailar y llorar')); ?></h1>
+            <p><?php echo esc_html(get_theme_mod('bailar_hero_description', 'un espacio para reflexionar sobre la vida, compartir historias y conectar con nuestras emociones más profundas')); ?></p> -->
         </div>
     </div>
     <?php endif; ?>
