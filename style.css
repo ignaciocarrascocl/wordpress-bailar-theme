@@ -129,7 +129,18 @@ h1, h2, h3, h4, h5, h6 {
     transition: height 0.3s ease;
 }
 
+/* WordPress custom logo support */
+.custom-logo {
+    height: 90px;
+    width: auto;
+    transition: height 0.3s ease;
+}
+
 .navbar.sticky .site-logo {
+    height: 50px;
+}
+
+.navbar.sticky .custom-logo {
     height: 50px;
 }
 
@@ -877,7 +888,15 @@ h1, h2, h3, h4, h5, h6 {
         height: 70px;
     }
 
+    .custom-logo {
+        height: 70px;
+    }
+
     .navbar.sticky .site-logo {
+        height: 40px;
+    }
+
+    .navbar.sticky .custom-logo {
         height: 40px;
     }
 
@@ -925,7 +944,15 @@ h1, h2, h3, h4, h5, h6 {
         height: 60px;
     }
 
+    .custom-logo {
+        height: 60px;
+    }
+
     .navbar.sticky .site-logo {
+        height: 35px;
+    }
+
+    .navbar.sticky .custom-logo {
         height: 35px;
     }
     

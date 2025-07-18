@@ -66,6 +66,16 @@ function bailar_y_llorar_scripts() {
 add_action('wp_enqueue_scripts', 'bailar_y_llorar_scripts');
 
 /**
+ * Custom logo classes and attributes
+ */
+function bailar_y_llorar_custom_logo($html) {
+    // Add site-logo class to the custom logo for better compatibility
+    $html = str_replace('class="custom-logo"', 'class="custom-logo site-logo"', $html);
+    return $html;
+}
+add_filter('get_custom_logo', 'bailar_y_llorar_custom_logo');
+
+/**
  * Custom excerpt length
  */
 function bailar_y_llorar_excerpt_length($length) {
