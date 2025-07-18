@@ -43,6 +43,11 @@
                     <div class="post-meta-footer mt-5 pt-4 border-top">
                         <div class="row">
                             <div class="col-md-6">
+                                <div class="post-author mb-3">
+                                    <strong>Autor:</strong>
+                                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php the_author(); ?></a>
+                                </div>
+                                
                                 <?php if (has_category()): ?>
                                     <div class="post-categories mb-3">
                                         <strong>Categorías:</strong>
