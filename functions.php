@@ -45,6 +45,32 @@ function bailar_y_llorar_setup() {
 add_action('after_setup_theme', 'bailar_y_llorar_setup');
 
 /**
+ * Register widget areas
+ */
+function bailar_y_llorar_widgets_init() {
+    register_sidebar(array(
+        'name'          => __('Sidebar Principal', 'bailar-y-llorar'),
+        'id'            => 'sidebar-1',
+        'description'   => __('Área de widgets para la barra lateral principal.', 'bailar-y-llorar'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="widget-title">',
+        'after_title'   => '</h4>',
+    ));
+    
+    register_sidebar(array(
+        'name'          => __('Footer Widgets', 'bailar-y-llorar'),
+        'id'            => 'footer-widgets',
+        'description'   => __('Área de widgets para el pie de página.', 'bailar-y-llorar'),
+        'before_widget' => '<div id="%1$s" class="footer-widget %2$s mb-4">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5 class="footer-widget-title">',
+        'after_title'   => '</h5>',
+    ));
+}
+add_action('widgets_init', 'bailar_y_llorar_widgets_init');
+
+/**
  * Enqueue scripts and styles
  */
 function bailar_y_llorar_scripts() {
