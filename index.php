@@ -22,7 +22,7 @@
         <h2 class="section-title">últimas reflexiones</h2>
         
         <div class="row">
-            <div class="col-12">
+            <div class="col-lg-8">
                 <?php if (have_posts()) : ?>
                     <?php $post_count = 0; ?>
                     <?php while (have_posts()) : the_post(); ?>
@@ -33,7 +33,7 @@
                             <div class="row g-0">
                                 <?php if ($post_count % 2 == 0): ?>
                                     <!-- Even posts: image on right -->
-                                    <div class="col-lg-5 order-lg-2">
+                                    <div class="col-md-5 order-md-2">
                                         <div class="post-image">
                                             <?php if (has_post_thumbnail()): ?>
                                                 <?php the_post_thumbnail('medium_large', array('class' => 'img-fluid')); ?>
@@ -42,10 +42,10 @@
                                             <?php endif; ?>
                                         </div>
                                     </div>
-                                    <div class="col-lg-7 order-lg-1">
+                                    <div class="col-md-7 order-md-1">
                                 <?php else: ?>
                                     <!-- Odd posts: image on left -->
-                                    <div class="col-lg-5">
+                                    <div class="col-md-5">
                                         <div class="post-image">
                                             <?php if (has_post_thumbnail()): ?>
                                                 <?php the_post_thumbnail('medium_large', array('class' => 'img-fluid')); ?>
@@ -54,7 +54,7 @@
                                             <?php endif; ?>
                                         </div>
                                     </div>
-                                    <div class="col-lg-7">
+                                    <div class="col-md-7">
                                 <?php endif; ?>
                                 
                                     <div class="post-content">
@@ -104,6 +104,11 @@
                         <p>Vuelve pronto para leer nuestras reflexiones sobre la vida.</p>
                     </div>
                 <?php endif; ?>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <?php get_sidebar(); ?>
             </div>
         </div>
     </div>

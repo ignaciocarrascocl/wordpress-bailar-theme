@@ -17,24 +17,26 @@
 <!-- Main Content -->
 <main class="main-content">
     <div class="container">
-        <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post(); ?>
-                <article class="single-post">
-                    <?php if (has_post_thumbnail()): ?>
-                        <div class="post-featured-image mb-4">
-                            <?php the_post_thumbnail('large', array('class' => 'img-fluid rounded')); ?>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <div class="post-content-single">
-                        <?php the_content(); ?>
-                        
-                        <?php
-                        wp_link_pages(array(
-                            'before' => '<div class="page-links">' . esc_html__('Páginas:', 'bailar-y-llorar'),
-                            'after'  => '</div>',
-                        ));
-                        ?>
+        <div class="row">
+            <div class="col-lg-8">
+                <?php if (have_posts()) : ?>
+                    <?php while (have_posts()) : the_post(); ?>
+                        <article class="single-post">
+                            <?php if (has_post_thumbnail()): ?>
+                                <div class="post-featured-image mb-4">
+                                    <?php the_post_thumbnail('large', array('class' => 'img-fluid rounded')); ?>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <div class="post-content-single">
+                                <?php the_content(); ?>
+                                
+                                <?php
+                                wp_link_pages(array(
+                                    'before' => '<div class="page-links">' . esc_html__('Páginas:', 'bailar-y-llorar'),
+                                    'after'  => '</div>',
+                                ));
+                                ?>
                     </div>
                     
                     <!-- Post Meta Footer -->
@@ -107,6 +109,13 @@
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="read-more-btn">Volver al inicio</a>
             </div>
         <?php endif; ?>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <?php get_sidebar(); ?>
+            </div>
+        </div>
     </div>
 </main>
 
