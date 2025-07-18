@@ -89,6 +89,51 @@ body a:hover,
     --bs-link-opacity: 1 !important;
 }
 
+/* Links with magenta backgrounds should have white text */
+.read-more-btn a,
+.btn a,
+.button a,
+.nav-links a,
+.navbar.sticky .nav-links a,
+[style*="background:#8f2d56"] a,
+[style*="background-color:#8f2d56"] a,
+[class*="bg-primary"] a,
+[class*="btn-primary"] a,
+.comment-form input[type="submit"] a,
+.search-form-container .btn-primary a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.read-more-btn a:hover,
+.btn a:hover,
+.button a:hover,
+.nav-links a:hover,
+.navbar.sticky .nav-links a:hover,
+[style*="background:#8f2d56"] a:hover,
+[style*="background-color:#8f2d56"] a:hover,
+[class*="bg-primary"] a:hover,
+[class*="btn-primary"] a:hover,
+.comment-form input[type="submit"] a:hover,
+.search-form-container .btn-primary a:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.read-more-btn a:visited,
+.btn a:visited,
+.button a:visited,
+.nav-links a:visited,
+.navbar.sticky .nav-links a:visited,
+[style*="background:#8f2d56"] a:visited,
+[style*="background-color:#8f2d56"] a:visited,
+[class*="bg-primary"] a:visited,
+[class*="btn-primary"] a:visited,
+.comment-form input[type="submit"] a:visited,
+.search-form-container .btn-primary a:visited {
+    color: #ffffff !important;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
